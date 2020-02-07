@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"github.com/aws/aws-lambda-go/lambda"
+)
+
+func hello() (string, error) {
+	return "Hello, world", nil
+}
 
 func main() {
-	fmt.Println("Hello, World")
+	// Make the handler available for Remote Procedure Call by AWS Lambda
+	lambda.Start(hello)
 }
